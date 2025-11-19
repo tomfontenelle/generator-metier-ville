@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agence Web Angers - Maine-et-Loire - Web Starting</title>
+    <meta name="description" content="Agence Web à Angers (Maine-et-Loire). Création de sites internet professionnels, e-commerce et applications web. Expertise locale et accompagnement personnalisé.">
+</head>
+<body>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap');
+
+/* RESET COMPLET ET ISOLATION WORDPRESS */
+.angers-wp-scope {
+    all: initial !important;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    display: block !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #082416 !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    line-height: 1.6 !important;
+    color: #ffffff !important;
+}
+
+.angers-wp-scope *,
+.angers-wp-scope *::before,
+.angers-wp-scope *::after {
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+}
+
+/* HERO SECTION */
+.angers-hero-section {
+    min-height: 100vh !important;
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 50%, #082416 100%) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 2rem 2rem 0 2rem !important;
+    margin: 0 !important;
+}
+
+.angers-hero-section::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-image: radial-gradient(circle at 20% 30%, rgba(232, 255, 69, 0.03) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 70%, rgba(232, 255, 69, 0.05) 0%, transparent 50%) !important;
+    pointer-events: none !important;
+}
+
+.angers-hero-container {
+    max-width: 1400px !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.angers-hero-content {
+    display: grid !important;
+    grid-template-columns: 1fr 400px !important;
+    gap: 6rem !important;
+    align-items: center !important;
+}
+
+.angers-hero-text {
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.angers-hero-text.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.angers-hero-title {
+    font-size: 4rem !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    margin: 0 0 2rem 0 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.02em !important;
+}
+
+.angers-highlight-yellow {
+    color: #e8ff45 !important;
+    position: relative !important;
+}
+
+.angers-hero-subtitle {
+    font-size: 1.25rem !important;
+    font-weight: 400 !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    max-width: 500px !important;
+}
+
+.angers-hero-form {
+    background: rgba(8, 36, 22, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(232, 255, 69, 0.3) !important;
+    border-radius: 12px !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease 0.3s !important;
+}
+
+.angers-hero-form.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.angers-form-group {
+    margin: 0 0 1.5rem 0 !important;
+}
+
+.angers-form-label {
+    display: block !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: #e8ff45 !important;
+    margin: 0 0 0.5rem 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.angers-form-input {
+    width: 100% !important;
+    padding: 1rem !important;
+    background: rgba(8, 36, 22, 0.6) !important;
+    border: 1px solid rgba(232, 255, 69, 0.3) !important;
+    border-radius: 6px !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-family: 'Montserrat', sans-serif !important;
+    transition: all 0.3s ease !important;
+    resize: vertical !important;
+    min-height: 3rem !important;
+    font-weight: 400 !important;
+}
+
+.angers-form-input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 300 !important;
+}
+
+.angers-form-input:focus {
+    outline: none !important;
+    border-color: #e8ff45 !important;
+    box-shadow: 0 0 0 2px rgba(232, 255, 69, 0.2) !important;
+    background: rgba(8, 36, 22, 0.8) !important;
+    color: #ffffff !important;
+}
+
+.angers-cta-button {
+    width: 100% !important;
+    padding: 1.25rem 2rem !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    color: #082416 !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 4px 15px rgba(232, 255, 69, 0.3) !important;
+}
+
+.angers-cta-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(232, 255, 69, 0.4) !important;
+    background: linear-gradient(135deg, #d4f442 0%, #e8ff45 100%) !important;
+}
+
+.angers-trust-badge {
+    text-align: center !important;
+    margin: 1.5rem 0 0 0 !important;
+    font-size: 0.75rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 400 !important;
+}
+
+/* SECTIONS GÉNÉRALES */
+.angers-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.angers-section-header {
+    text-align: center !important;
+    margin: 0 0 4rem 0 !important;
+}
+
+.angers-section-title {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.angers-section-subtitle {
+    font-size: 1.125rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 auto !important;
+    max-width: 600px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+}
+
+.angers-highlight {
+    color: #e8ff45 !important;
+    position: relative !important;
+}
+
+/* SECTION POURQUOI */
+.angers-why-section {
+    padding: 2rem 0 5rem 0 !important;
+    background: #082416 !important;
+    position: relative !important;
+    margin: 0 !important;
+}
+
+.angers-benefits-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.angers-benefit-card {
+    background: rgba(8, 36, 22, 0.4) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(232, 255, 69, 0.1) !important;
+    position: relative !important;
+    transition: all 0.3s ease !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+}
+
+.angers-benefit-card.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.angers-benefit-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(232, 255, 69, 0.3) !important;
+}
+
+.angers-benefit-icon {
+    width: 50px !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-size: 20px !important;
+}
+
+.angers-benefit-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.3 !important;
+}
+
+.angers-benefit-description {
+    font-size: 0.95rem !important;
+    color: #a0a0a0 !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+/* SECTION FONCTIONNALITÉS */
+.angers-features-section {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 100%) !important;
+    margin: 0 !important;
+}
+
+.angers-features-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4rem !important;
+    align-items: center !important;
+}
+
+.angers-features-content {
+    opacity: 0 !important;
+    transform: translateX(-30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.angers-features-content.animate {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.angers-features-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 2rem 0 0 0 !important;
+}
+
+.angers-feature-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    margin: 0 0 1.5rem 0 !important;
+    padding: 1.5rem !important;
+    background: rgba(8, 36, 22, 0.3) !important;
+    border-radius: 10px !important;
+    border-left: 3px solid #e8ff45 !important;
+    transition: all 0.3s ease !important;
+}
+
+.angers-feature-item:hover {
+    background: rgba(8, 36, 22, 0.5) !important;
+    transform: translateX(5px) !important;
+}
+
+.angers-feature-icon {
+    width: 35px !important;
+    height: 35px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 1rem 0 0 !important;
+    flex-shrink: 0 !important;
+    font-size: 16px !important;
+}
+
+.angers-feature-content h4 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.angers-feature-content p {
+    font-size: 0.9rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+}
+
+.angers-features-visual {
+    opacity: 0 !important;
+    transform: translateX(30px) !important;
+    transition: all 0.8s ease 0.2s !important;
+}
+
+.angers-features-visual.animate {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.angers-mockup {
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 100%) !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.angers-mockup-header {
+    height: 30px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 12px 12px 0 0 !important;
+    margin: 0 0 1rem 0 !important;
+}
+
+.angers-mockup-content {
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 2rem !important;
+    min-height: 200px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+.angers-mockup-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #082416 !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.angers-mockup-text {
+    color: #666666 !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-size: 0.9rem !important;
+}
+
+.angers-mockup-button {
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    color: #082416 !important;
+    padding: 0.75rem 1.5rem !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    font-size: 0.9rem !important;
+}
+
+/* SECTION TÉMOIGNAGES */
+.angers-testimonials-section {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #0a2d1a 0%, #082416 100%) !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+}
+
+.angers-testimonials-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.angers-testimonial-card {
+    background: rgba(8, 36, 22, 0.4) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(232, 255, 69, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    position: relative !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.angers-testimonial-card.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.angers-testimonial-quote {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-style: italic !important;
+    color: #e5e5e5 !important;
+}
+
+.angers-testimonial-author {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.angers-testimonial-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 1rem 0 0 !important;
+    font-weight: 700 !important;
+    color: #082416 !important;
+    font-size: 0.9rem !important;
+}
+
+.angers-testimonial-info h4 {
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    margin: 0 0 0.25rem 0 !important;
+    color: #ffffff !important;
+}
+
+.angers-testimonial-info p {
+    font-size: 0.8rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+}
+
+/* SECTION CTA FINALE */
+.angers-final-cta {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    text-align: center !important;
+    color: #082416 !important;
+    margin: 0 !important;
+}
+
+.angers-final-cta h2 {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.2 !important;
+}
+
+.angers-final-cta p {
+    font-size: 1.125rem !important;
+    margin: 0 0 2rem 0 !important;
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    opacity: 0.8 !important;
+}
+
+.angers-final-button {
+    background: #082416 !important;
+    color: #ffffff !important;
+    padding: 1.25rem 2.5rem !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 8px 25px rgba(8, 36, 22, 0.3) !important;
+}
+
+.angers-final-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(8, 36, 22, 0.4) !important;
+    background: #0a2d1a !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .angers-hero-content {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+        text-align: center !important;
+    }
+
+    .angers-features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+
+    .angers-hero-title {
+        font-size: 3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .angers-hero-section {
+        padding: 1rem 1rem 0 1rem !important;
+        min-height: 70vh !important;
+    }
+
+    .angers-hero-title {
+        font-size: 2.5rem !important;
+    }
+
+    .angers-section-title {
+        font-size: 2rem !important;
+    }
+
+    .angers-final-cta h2 {
+        font-size: 2rem !important;
+    }
+
+    .angers-benefits-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .angers-testimonials-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .angers-container {
+        padding: 0 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .angers-hero-section {
+        padding: 1.5rem 1rem !important;
+        min-height: 60vh !important;
+    }
+
+    .angers-hero-content {
+        gap: 2rem !important;
+    }
+
+    .angers-hero-title {
+        font-size: 2rem !important;
+    }
+
+    .angers-hero-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .angers-hero-form {
+        padding: 1.5rem !important;
+    }
+
+    .angers-section-title {
+        font-size: 1.75rem !important;
+    }
+
+    .angers-final-cta h2 {
+        font-size: 1.75rem !important;
+    }
+
+    .angers-why-section,
+    .angers-features-section,
+    .angers-testimonials-section,
+    .angers-final-cta {
+        padding: 3rem 0 !important;
+    }
+}
+</style>
+
+<div class="angers-wp-scope">
+    <!-- HERO SECTION -->
+    <section class="angers-hero-section">
+        <div class="angers-hero-container">
+            <div class="angers-hero-content">
+                <div class="angers-hero-text">
+                    <h1 class="angers-hero-title">
+                        <span class="angers-highlight-yellow">Agence web</span> à Angers : création de sites professionnels en Maine-et-Loire
+                    </h1>
+                    <p class="angers-hero-subtitle">
+                        Votre partenaire digital local pour créer un site internet performant. Expertise web, accompagnement personnalisé et présence locale en Maine-et-Loire pour faire grandir votre activité.
+                    </p>
+                </div>
+
+                <div class="angers-hero-form">
+                    <form id="angers-contact-form">
+                        <div class="angers-form-group">
+                            <label for="angers-name" class="angers-form-label">VOTRE NOM</label>
+                            <input type="text" id="angers-name" name="name" class="angers-form-input" placeholder="Jean Dupont" required />
+                        </div>
+
+                        <div class="angers-form-group">
+                            <label for="angers-email" class="angers-form-label">VOTRE EMAIL</label>
+                            <input type="email" id="angers-email" name="email" class="angers-form-input" placeholder="jean.dupont@entreprise.fr" required />
+                        </div>
+
+                        <div class="angers-form-group">
+                            <label for="angers-project" class="angers-form-label">DÉCRIVEZ VOTRE PROJET</label>
+                            <textarea id="angers-project" name="project" class="angers-form-input" placeholder="Ex: Je suis artisan à Angers et je souhaite créer un site vitrine pour présenter mes services..." rows="4" required></textarea>
+                        </div>
+
+                        <button type="submit" class="angers-cta-button">DEMANDEZ VOTRE DEVIS GRATUIT</button>
+                        <div class="angers-trust-badge">✓ Agence locale Maine-et-Loire • Réponse sous 24h • Sans engagement</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION POURQUOI AGENCE LOCALE -->
+    <section class="angers-why-section">
+        <div class="angers-container">
+            <div class="angers-section-header">
+                <h2 class="angers-section-title">
+                    Pourquoi choisir une <span class="angers-highlight">agence web locale</span> à Angers ?
+                </h2>
+                <p class="angers-section-subtitle">
+                    Une agence de proximité qui comprend les enjeux des entreprises angevines. Disponibilité, réactivité et connaissance du territoire pour un accompagnement digital sur-mesure.
+                </p>
+            </div>
+
+            <div class="angers-benefits-grid">
+                
+                <div class="angers-benefit-card">
+                    <div class="angers-benefit-icon">📍</div>
+                    <h3 class="angers-benefit-title">Proximité et disponibilité</h3>
+                    <p class="angers-benefit-description">
+                        Basée à Angers, notre agence est disponible pour des rendez-vous physiques, une vraie relation de confiance et un suivi personnalisé de votre projet web.
+                    </p>
+                </div>
+                <div class="angers-benefit-card">
+                    <div class="angers-benefit-icon">🎯</div>
+                    <h3 class="angers-benefit-title">Expertise SEO local Maine-et-Loire</h3>
+                    <p class="angers-benefit-description">
+                        Maîtrise du référencement local pour positionner votre entreprise sur Google à Angers, Cholet, Saumur et toute la Maine-et-Loire.
+                    </p>
+                </div>
+                <div class="angers-benefit-card">
+                    <div class="angers-benefit-icon">🚀</div>
+                    <h3 class="angers-benefit-title">Solutions sur-mesure adaptées</h3>
+                    <p class="angers-benefit-description">
+                        Sites vitrines, e-commerce, applications web... Nous créons des solutions digitales parfaitement adaptées aux besoins des entreprises angevines.
+                    </p>
+                </div>
+                <div class="angers-benefit-card">
+                    <div class="angers-benefit-icon">💼</div>
+                    <h3 class="angers-benefit-title">Accompagnement complet</h3>
+                    <p class="angers-benefit-description">
+                        De la conception à la maintenance, en passant par l'hébergement et la formation. Un interlocuteur unique pour tous vos besoins digitaux.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FONCTIONNALITÉS -->
+    <section class="angers-features-section">
+        <div class="angers-container">
+            <div class="angers-features-grid">
+                <div class="angers-features-content">
+                    <h2 class="angers-section-title">
+                        Nos <span class="angers-highlight">services web</span> pour entreprises angevines
+                    </h2>
+                    <p class="angers-section-subtitle">
+                        Une gamme complète de solutions digitales pour développer votre visibilité et votre activité en Maine-et-Loire et au-delà.
+                    </p>
+
+                    <ul class="angers-features-list">
+                        
+                        <li class="angers-feature-item">
+                            <div class="angers-feature-icon">🌐</div>
+                            <div class="angers-feature-content">
+                                <h4>Création de sites vitrines</h4>
+                                <p>Sites professionnels responsive pour artisans, PME, professions libérales. Design moderne et optimisation SEO pour capter vos clients locaux.</p>
+                            </div>
+                        </li>
+                        <li class="angers-feature-item">
+                            <div class="angers-feature-icon">🛍️</div>
+                            <div class="angers-feature-content">
+                                <h4>E-commerce et boutiques en ligne</h4>
+                                <p>Solutions WooCommerce, Shopify ou PrestaShop pour vendre vos produits 24h/24. Paiement sécurisé, gestion des stocks et livraison intégrée.</p>
+                            </div>
+                        </li>
+                        <li class="angers-feature-item">
+                            <div class="angers-feature-icon">📱</div>
+                            <div class="angers-feature-content">
+                                <h4>Applications web sur-mesure</h4>
+                                <p>Développement d'outils métier personnalisés : CRM, gestion interne, plateformes de réservation adaptées à vos processus spécifiques.</p>
+                            </div>
+                        </li>
+                        <li class="angers-feature-item">
+                            <div class="angers-feature-icon">🔧</div>
+                            <div class="angers-feature-content">
+                                <h4>Maintenance et support continu</h4>
+                                <p>Mises à jour, sauvegardes, sécurité, corrections de bugs. Votre site reste performant et sécurisé avec notre contrat de maintenance.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="angers-features-visual">
+                    <div class="angers-mockup">
+                        <div class="angers-mockup-header"></div>
+                        <div class="angers-mockup-content">
+                            <h3 class="angers-mockup-title">Entreprise Angevines</h3>
+                            <p class="angers-mockup-text">Site professionnel • SEO local<br />Angers • Maine-et-Loire</p>
+                            <button class="angers-mockup-button">Découvrir nos réalisations</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TÉMOIGNAGES -->
+    <section class="angers-testimonials-section">
+        <div class="angers-container">
+            <div class="angers-section-header">
+                <h2 class="angers-section-title" style="color: #ffffff !important;">
+                    Ils nous ont fait <span class="angers-highlight">confiance</span> en Maine-et-Loire
+                </h2>
+                <p class="angers-section-subtitle" style="color: #e5e5e5 !important;">
+                    Découvrez les témoignages d'entrepreneurs et d'entreprises angevines satisfaits de nos services web.
+                </p>
+            </div>
+
+            <div class="angers-testimonials-grid">
+                
+                <div class="angers-testimonial-card">
+                    <p class="angers-testimonial-quote">
+                        "Une agence réactive et professionnelle. Mon site vitrine est exactement ce que je voulais. Mes clients me trouvent maintenant facilement sur Google à Angers !"
+                    </p>
+                    <div class="angers-testimonial-author">
+                        <div class="angers-testimonial-avatar">JD</div>
+                        <div class="angers-testimonial-info">
+                            <h4>Jean Dupont</h4>
+                            <p>Artisan plombier, Angers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="angers-testimonial-card">
+                    <p class="angers-testimonial-quote">
+                        "L'accompagnement local fait toute la différence. Des rendez-vous en face-à-face, une vraie écoute et un site e-commerce qui cartonne depuis son lancement."
+                    </p>
+                    <div class="angers-testimonial-author">
+                        <div class="angers-testimonial-avatar">SM</div>
+                        <div class="angers-testimonial-info">
+                            <h4>Sophie Martin</h4>
+                            <p>Commerçante, Cholet</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="angers-testimonial-card">
+                    <p class="angers-testimonial-quote">
+                        "Excellente prestation ! Notre site web reflète parfaitement notre activité. Le référencement local nous apporte de nouveaux clients chaque semaine."
+                    </p>
+                    <div class="angers-testimonial-author">
+                        <div class="angers-testimonial-avatar">PL</div>
+                        <div class="angers-testimonial-info">
+                            <h4>Pierre Leblanc</h4>
+                            <p>Gérant PME, Saumur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CTA FINALE -->
+    <section class="angers-final-cta">
+        <div class="angers-container">
+            <h2>Prêt à lancer votre projet web en Maine-et-Loire ?</h2>
+            <p>
+                Discutons ensemble de vos objectifs digitaux autour d'un café à Angers. Devis personnalisé et conseils gratuits pour votre projet web.
+            </p>
+            <button class="angers-final-button" onclick="angersScrollToForm()">
+                Contactez votre agence locale
+            </button>
+        </div>
+    </section>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    const root = document.querySelector('.angers-wp-scope');
+    if (!root) return;
+
+    // Initialisation EmailJS
+    (function() {
+        emailjs.init('EbZUccJ9uKukb5WRE');
+    })();
+
+    // Animation d'entrée progressive
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+
+    // Initialisation des animations
+    const animatedElements = root.querySelectorAll('.angers-hero-text, .angers-hero-form, .angers-benefit-card, .angers-testimonial-card, .angers-features-content, .angers-features-visual');
+
+    animatedElements.forEach((el, index) => {
+        el.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(el);
+    });
+
+    // Animation immédiate pour le hero
+    setTimeout(() => {
+        const heroText = root.querySelector('.angers-hero-text');
+        const heroForm = root.querySelector('.angers-hero-form');
+        if (heroText) heroText.classList.add('animate');
+        if (heroForm) heroForm.classList.add('animate');
+    }, 500);
+
+    // Gestion du formulaire
+    const form = root.querySelector('#angers-contact-form');
+    const button = root.querySelector('.angers-cta-button');
+
+    if (form && button) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = form.querySelector('#angers-name').value;
+            const email = form.querySelector('#angers-email').value;
+            const project = form.querySelector('#angers-project').value;
+
+            if (!name || !email || !project) {
+                alert('Veuillez remplir tous les champs.');
+                return;
+            }
+
+            // Animation du bouton
+            button.innerHTML = '⏳ Envoi en cours...';
+            button.style.background = 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)';
+            button.disabled = true;
+
+            // Paramètres EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                project_description: project,
+                to_email: 'contact.capitainepub@gmail.com',
+                subject: 'Nouvelle demande - Agence Web Angers - web-starting.fr',
+                message: `Nouvelle demande agence web depuis Angers via web-starting.fr\n\nNom: ${name}\nEmail: ${email}\nProjet: ${project}\n\nSource: Page Agence Angers - web-starting.fr\nDate: ${new Date().toLocaleString('fr-FR')}\n\nCordialement,\nSystème automatique web-starting.fr`
+            };
+
+            // Envoi via EmailJS
+            emailjs.send('service_btbtgzn', 'template_m06wtf1', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    button.innerHTML = '✅ Demande envoyée !';
+                    button.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+
+                    // Réinitialiser après 3 secondes
+                    setTimeout(() => {
+                        button.innerHTML = 'DEMANDEZ VOTRE DEVIS GRATUIT';
+                        button.style.background = 'linear-gradient(135deg, #e8ff45 0%, #d4f442 100%)';
+                        button.disabled = false;
+                        form.reset();
+                    }, 3000);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    button.innerHTML = '❌ Erreur d\'envoi';
+                    button.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+
+                    // Réinitialiser après 3 secondes
+                    setTimeout(() => {
+                        button.innerHTML = 'DEMANDEZ VOTRE DEVIS GRATUIT';
+                        button.style.background = 'linear-gradient(135deg, #e8ff45 0%, #d4f442 100%)';
+                        button.disabled = false;
+                    }, 3000);
+                });
+        });
+    }
+
+    // Fonction pour scroller vers le formulaire
+    window.angersScrollToForm = function() {
+        const heroForm = root.querySelector('.angers-hero-form');
+        if (heroForm) {
+            heroForm.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            // Focus sur le champ nom après le scroll
+            setTimeout(() => {
+                const nameField = heroForm.querySelector('#angers-name');
+                if (nameField) nameField.focus();
+            }, 1000);
+        }
+    };
+
+    // Effet de parallaxe subtil
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.3;
+        const heroSection = root.querySelector('.angers-hero-section');
+        if (heroSection) {
+            heroSection.style.transform = `translateY(${rate}px)`;
+        }
+    });
+})();
+</script>
+
+</body>
+</html>

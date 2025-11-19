@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agence Web Rennes - Ille-et-Vilaine - Web Starting</title>
+    <meta name="description" content="Agence Web à Rennes (Ille-et-Vilaine). Création de sites internet professionnels, e-commerce et applications web. Expertise locale et accompagnement personnalisé.">
+</head>
+<body>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap');
+
+/* RESET COMPLET ET ISOLATION WORDPRESS */
+.rennes-wp-scope {
+    all: initial !important;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    display: block !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #082416 !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    line-height: 1.6 !important;
+    color: #ffffff !important;
+}
+
+.rennes-wp-scope *,
+.rennes-wp-scope *::before,
+.rennes-wp-scope *::after {
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+}
+
+/* HERO SECTION */
+.rennes-hero-section {
+    min-height: 100vh !important;
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 50%, #082416 100%) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 2rem 2rem 0 2rem !important;
+    margin: 0 !important;
+}
+
+.rennes-hero-section::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-image: radial-gradient(circle at 20% 30%, rgba(232, 255, 69, 0.03) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 70%, rgba(232, 255, 69, 0.05) 0%, transparent 50%) !important;
+    pointer-events: none !important;
+}
+
+.rennes-hero-container {
+    max-width: 1400px !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.rennes-hero-content {
+    display: grid !important;
+    grid-template-columns: 1fr 400px !important;
+    gap: 6rem !important;
+    align-items: center !important;
+}
+
+.rennes-hero-text {
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.rennes-hero-text.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.rennes-hero-title {
+    font-size: 4rem !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    margin: 0 0 2rem 0 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.02em !important;
+}
+
+.rennes-highlight-yellow {
+    color: #e8ff45 !important;
+    position: relative !important;
+}
+
+.rennes-hero-subtitle {
+    font-size: 1.25rem !important;
+    font-weight: 400 !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    max-width: 500px !important;
+}
+
+.rennes-hero-form {
+    background: rgba(8, 36, 22, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(232, 255, 69, 0.3) !important;
+    border-radius: 12px !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease 0.3s !important;
+}
+
+.rennes-hero-form.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.rennes-form-group {
+    margin: 0 0 1.5rem 0 !important;
+}
+
+.rennes-form-label {
+    display: block !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: #e8ff45 !important;
+    margin: 0 0 0.5rem 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.rennes-form-input {
+    width: 100% !important;
+    padding: 1rem !important;
+    background: rgba(8, 36, 22, 0.6) !important;
+    border: 1px solid rgba(232, 255, 69, 0.3) !important;
+    border-radius: 6px !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-family: 'Montserrat', sans-serif !important;
+    transition: all 0.3s ease !important;
+    resize: vertical !important;
+    min-height: 3rem !important;
+    font-weight: 400 !important;
+}
+
+.rennes-form-input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 300 !important;
+}
+
+.rennes-form-input:focus {
+    outline: none !important;
+    border-color: #e8ff45 !important;
+    box-shadow: 0 0 0 2px rgba(232, 255, 69, 0.2) !important;
+    background: rgba(8, 36, 22, 0.8) !important;
+    color: #ffffff !important;
+}
+
+.rennes-cta-button {
+    width: 100% !important;
+    padding: 1.25rem 2rem !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    color: #082416 !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 4px 15px rgba(232, 255, 69, 0.3) !important;
+}
+
+.rennes-cta-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(232, 255, 69, 0.4) !important;
+    background: linear-gradient(135deg, #d4f442 0%, #e8ff45 100%) !important;
+}
+
+.rennes-trust-badge {
+    text-align: center !important;
+    margin: 1.5rem 0 0 0 !important;
+    font-size: 0.75rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 400 !important;
+}
+
+/* SECTIONS GÉNÉRALES */
+.rennes-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.rennes-section-header {
+    text-align: center !important;
+    margin: 0 0 4rem 0 !important;
+}
+
+.rennes-section-title {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.rennes-section-subtitle {
+    font-size: 1.125rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 auto !important;
+    max-width: 600px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+}
+
+.rennes-highlight {
+    color: #e8ff45 !important;
+    position: relative !important;
+}
+
+/* SECTION POURQUOI */
+.rennes-why-section {
+    padding: 2rem 0 5rem 0 !important;
+    background: #082416 !important;
+    position: relative !important;
+    margin: 0 !important;
+}
+
+.rennes-benefits-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.rennes-benefit-card {
+    background: rgba(8, 36, 22, 0.4) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(232, 255, 69, 0.1) !important;
+    position: relative !important;
+    transition: all 0.3s ease !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+}
+
+.rennes-benefit-card.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.rennes-benefit-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(232, 255, 69, 0.3) !important;
+}
+
+.rennes-benefit-icon {
+    width: 50px !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-size: 20px !important;
+}
+
+.rennes-benefit-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.3 !important;
+}
+
+.rennes-benefit-description {
+    font-size: 0.95rem !important;
+    color: #a0a0a0 !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+/* SECTION FONCTIONNALITÉS */
+.rennes-features-section {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 100%) !important;
+    margin: 0 !important;
+}
+
+.rennes-features-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4rem !important;
+    align-items: center !important;
+}
+
+.rennes-features-content {
+    opacity: 0 !important;
+    transform: translateX(-30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.rennes-features-content.animate {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.rennes-features-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 2rem 0 0 0 !important;
+}
+
+.rennes-feature-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    margin: 0 0 1.5rem 0 !important;
+    padding: 1.5rem !important;
+    background: rgba(8, 36, 22, 0.3) !important;
+    border-radius: 10px !important;
+    border-left: 3px solid #e8ff45 !important;
+    transition: all 0.3s ease !important;
+}
+
+.rennes-feature-item:hover {
+    background: rgba(8, 36, 22, 0.5) !important;
+    transform: translateX(5px) !important;
+}
+
+.rennes-feature-icon {
+    width: 35px !important;
+    height: 35px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 1rem 0 0 !important;
+    flex-shrink: 0 !important;
+    font-size: 16px !important;
+}
+
+.rennes-feature-content h4 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.rennes-feature-content p {
+    font-size: 0.9rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+}
+
+.rennes-features-visual {
+    opacity: 0 !important;
+    transform: translateX(30px) !important;
+    transition: all 0.8s ease 0.2s !important;
+}
+
+.rennes-features-visual.animate {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.rennes-mockup {
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 100%) !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.rennes-mockup-header {
+    height: 30px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 12px 12px 0 0 !important;
+    margin: 0 0 1rem 0 !important;
+}
+
+.rennes-mockup-content {
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 2rem !important;
+    min-height: 200px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+.rennes-mockup-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #082416 !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.rennes-mockup-text {
+    color: #666666 !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-size: 0.9rem !important;
+}
+
+.rennes-mockup-button {
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    color: #082416 !important;
+    padding: 0.75rem 1.5rem !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    font-size: 0.9rem !important;
+}
+
+/* SECTION TÉMOIGNAGES */
+.rennes-testimonials-section {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #0a2d1a 0%, #082416 100%) !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+}
+
+.rennes-testimonials-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.rennes-testimonial-card {
+    background: rgba(8, 36, 22, 0.4) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(232, 255, 69, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    position: relative !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.rennes-testimonial-card.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.rennes-testimonial-quote {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-style: italic !important;
+    color: #e5e5e5 !important;
+}
+
+.rennes-testimonial-author {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.rennes-testimonial-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 1rem 0 0 !important;
+    font-weight: 700 !important;
+    color: #082416 !important;
+    font-size: 0.9rem !important;
+}
+
+.rennes-testimonial-info h4 {
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    margin: 0 0 0.25rem 0 !important;
+    color: #ffffff !important;
+}
+
+.rennes-testimonial-info p {
+    font-size: 0.8rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+}
+
+/* SECTION CTA FINALE */
+.rennes-final-cta {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    text-align: center !important;
+    color: #082416 !important;
+    margin: 0 !important;
+}
+
+.rennes-final-cta h2 {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.2 !important;
+}
+
+.rennes-final-cta p {
+    font-size: 1.125rem !important;
+    margin: 0 0 2rem 0 !important;
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    opacity: 0.8 !important;
+}
+
+.rennes-final-button {
+    background: #082416 !important;
+    color: #ffffff !important;
+    padding: 1.25rem 2.5rem !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 8px 25px rgba(8, 36, 22, 0.3) !important;
+}
+
+.rennes-final-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(8, 36, 22, 0.4) !important;
+    background: #0a2d1a !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .rennes-hero-content {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+        text-align: center !important;
+    }
+
+    .rennes-features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+
+    .rennes-hero-title {
+        font-size: 3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .rennes-hero-section {
+        padding: 1rem 1rem 0 1rem !important;
+        min-height: 70vh !important;
+    }
+
+    .rennes-hero-title {
+        font-size: 2.5rem !important;
+    }
+
+    .rennes-section-title {
+        font-size: 2rem !important;
+    }
+
+    .rennes-final-cta h2 {
+        font-size: 2rem !important;
+    }
+
+    .rennes-benefits-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .rennes-testimonials-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .rennes-container {
+        padding: 0 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .rennes-hero-section {
+        padding: 1.5rem 1rem !important;
+        min-height: 60vh !important;
+    }
+
+    .rennes-hero-content {
+        gap: 2rem !important;
+    }
+
+    .rennes-hero-title {
+        font-size: 2rem !important;
+    }
+
+    .rennes-hero-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .rennes-hero-form {
+        padding: 1.5rem !important;
+    }
+
+    .rennes-section-title {
+        font-size: 1.75rem !important;
+    }
+
+    .rennes-final-cta h2 {
+        font-size: 1.75rem !important;
+    }
+
+    .rennes-why-section,
+    .rennes-features-section,
+    .rennes-testimonials-section,
+    .rennes-final-cta {
+        padding: 3rem 0 !important;
+    }
+}
+</style>
+
+<div class="rennes-wp-scope">
+    <!-- HERO SECTION -->
+    <section class="rennes-hero-section">
+        <div class="rennes-hero-container">
+            <div class="rennes-hero-content">
+                <div class="rennes-hero-text">
+                    <h1 class="rennes-hero-title">
+                        <span class="rennes-highlight-yellow">Agence web</span> à Rennes : création de sites professionnels en Ille-et-Vilaine
+                    </h1>
+                    <p class="rennes-hero-subtitle">
+                        Votre partenaire digital local pour créer un site internet performant. Expertise web, accompagnement personnalisé et présence locale en Ille-et-Vilaine pour faire grandir votre activité.
+                    </p>
+                </div>
+
+                <div class="rennes-hero-form">
+                    <form id="rennes-contact-form">
+                        <div class="rennes-form-group">
+                            <label for="rennes-name" class="rennes-form-label">VOTRE NOM</label>
+                            <input type="text" id="rennes-name" name="name" class="rennes-form-input" placeholder="Jean Dupont" required />
+                        </div>
+
+                        <div class="rennes-form-group">
+                            <label for="rennes-email" class="rennes-form-label">VOTRE EMAIL</label>
+                            <input type="email" id="rennes-email" name="email" class="rennes-form-input" placeholder="jean.dupont@entreprise.fr" required />
+                        </div>
+
+                        <div class="rennes-form-group">
+                            <label for="rennes-project" class="rennes-form-label">DÉCRIVEZ VOTRE PROJET</label>
+                            <textarea id="rennes-project" name="project" class="rennes-form-input" placeholder="Ex: Je suis artisan à Rennes et je souhaite créer un site vitrine pour présenter mes services..." rows="4" required></textarea>
+                        </div>
+
+                        <button type="submit" class="rennes-cta-button">DEMANDEZ VOTRE DEVIS GRATUIT</button>
+                        <div class="rennes-trust-badge">✓ Agence locale Ille-et-Vilaine • Réponse sous 24h • Sans engagement</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION POURQUOI AGENCE LOCALE -->
+    <section class="rennes-why-section">
+        <div class="rennes-container">
+            <div class="rennes-section-header">
+                <h2 class="rennes-section-title">
+                    Pourquoi choisir une <span class="rennes-highlight">agence web locale</span> à Rennes ?
+                </h2>
+                <p class="rennes-section-subtitle">
+                    Une agence de proximité qui comprend les enjeux des entreprises rennaises. Disponibilité, réactivité et connaissance du territoire pour un accompagnement digital sur-mesure.
+                </p>
+            </div>
+
+            <div class="rennes-benefits-grid">
+                
+                <div class="rennes-benefit-card">
+                    <div class="rennes-benefit-icon">📍</div>
+                    <h3 class="rennes-benefit-title">Proximité et disponibilité</h3>
+                    <p class="rennes-benefit-description">
+                        Basée à Rennes, notre agence est disponible pour des rendez-vous physiques, une vraie relation de confiance et un suivi personnalisé de votre projet web.
+                    </p>
+                </div>
+                <div class="rennes-benefit-card">
+                    <div class="rennes-benefit-icon">🎯</div>
+                    <h3 class="rennes-benefit-title">Expertise SEO local Ille-et-Vilaine</h3>
+                    <p class="rennes-benefit-description">
+                        Maîtrise du référencement local pour positionner votre entreprise sur Google à Rennes, Saint-Malo, Fougères et toute la Ille-et-Vilaine.
+                    </p>
+                </div>
+                <div class="rennes-benefit-card">
+                    <div class="rennes-benefit-icon">🚀</div>
+                    <h3 class="rennes-benefit-title">Solutions sur-mesure adaptées</h3>
+                    <p class="rennes-benefit-description">
+                        Sites vitrines, e-commerce, applications web... Nous créons des solutions digitales parfaitement adaptées aux besoins des entreprises rennaises.
+                    </p>
+                </div>
+                <div class="rennes-benefit-card">
+                    <div class="rennes-benefit-icon">💼</div>
+                    <h3 class="rennes-benefit-title">Accompagnement complet</h3>
+                    <p class="rennes-benefit-description">
+                        De la conception à la maintenance, en passant par l'hébergement et la formation. Un interlocuteur unique pour tous vos besoins digitaux.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FONCTIONNALITÉS -->
+    <section class="rennes-features-section">
+        <div class="rennes-container">
+            <div class="rennes-features-grid">
+                <div class="rennes-features-content">
+                    <h2 class="rennes-section-title">
+                        Nos <span class="rennes-highlight">services web</span> pour entreprises rennaises
+                    </h2>
+                    <p class="rennes-section-subtitle">
+                        Une gamme complète de solutions digitales pour développer votre visibilité et votre activité en Ille-et-Vilaine et au-delà.
+                    </p>
+
+                    <ul class="rennes-features-list">
+                        
+                        <li class="rennes-feature-item">
+                            <div class="rennes-feature-icon">🌐</div>
+                            <div class="rennes-feature-content">
+                                <h4>Création de sites vitrines</h4>
+                                <p>Sites professionnels responsive pour artisans, PME, professions libérales. Design moderne et optimisation SEO pour capter vos clients locaux.</p>
+                            </div>
+                        </li>
+                        <li class="rennes-feature-item">
+                            <div class="rennes-feature-icon">🛍️</div>
+                            <div class="rennes-feature-content">
+                                <h4>E-commerce et boutiques en ligne</h4>
+                                <p>Solutions WooCommerce, Shopify ou PrestaShop pour vendre vos produits 24h/24. Paiement sécurisé, gestion des stocks et livraison intégrée.</p>
+                            </div>
+                        </li>
+                        <li class="rennes-feature-item">
+                            <div class="rennes-feature-icon">📱</div>
+                            <div class="rennes-feature-content">
+                                <h4>Applications web sur-mesure</h4>
+                                <p>Développement d'outils métier personnalisés : CRM, gestion interne, plateformes de réservation adaptées à vos processus spécifiques.</p>
+                            </div>
+                        </li>
+                        <li class="rennes-feature-item">
+                            <div class="rennes-feature-icon">🔧</div>
+                            <div class="rennes-feature-content">
+                                <h4>Maintenance et support continu</h4>
+                                <p>Mises à jour, sauvegardes, sécurité, corrections de bugs. Votre site reste performant et sécurisé avec notre contrat de maintenance.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="rennes-features-visual">
+                    <div class="rennes-mockup">
+                        <div class="rennes-mockup-header"></div>
+                        <div class="rennes-mockup-content">
+                            <h3 class="rennes-mockup-title">Entreprise Rennaises</h3>
+                            <p class="rennes-mockup-text">Site professionnel • SEO local<br />Rennes • Ille-et-Vilaine</p>
+                            <button class="rennes-mockup-button">Découvrir nos réalisations</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TÉMOIGNAGES -->
+    <section class="rennes-testimonials-section">
+        <div class="rennes-container">
+            <div class="rennes-section-header">
+                <h2 class="rennes-section-title" style="color: #ffffff !important;">
+                    Ils nous ont fait <span class="rennes-highlight">confiance</span> en Ille-et-Vilaine
+                </h2>
+                <p class="rennes-section-subtitle" style="color: #e5e5e5 !important;">
+                    Découvrez les témoignages d'entrepreneurs et d'entreprises rennaises satisfaits de nos services web.
+                </p>
+            </div>
+
+            <div class="rennes-testimonials-grid">
+                
+                <div class="rennes-testimonial-card">
+                    <p class="rennes-testimonial-quote">
+                        "Une agence réactive et professionnelle. Mon site vitrine est exactement ce que je voulais. Mes clients me trouvent maintenant facilement sur Google à Rennes !"
+                    </p>
+                    <div class="rennes-testimonial-author">
+                        <div class="rennes-testimonial-avatar">JD</div>
+                        <div class="rennes-testimonial-info">
+                            <h4>Jean Dupont</h4>
+                            <p>Artisan plombier, Rennes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rennes-testimonial-card">
+                    <p class="rennes-testimonial-quote">
+                        "L'accompagnement local fait toute la différence. Des rendez-vous en face-à-face, une vraie écoute et un site e-commerce qui cartonne depuis son lancement."
+                    </p>
+                    <div class="rennes-testimonial-author">
+                        <div class="rennes-testimonial-avatar">SM</div>
+                        <div class="rennes-testimonial-info">
+                            <h4>Sophie Martin</h4>
+                            <p>Commerçante, Saint-Malo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rennes-testimonial-card">
+                    <p class="rennes-testimonial-quote">
+                        "Excellente prestation ! Notre site web reflète parfaitement notre activité. Le référencement local nous apporte de nouveaux clients chaque semaine."
+                    </p>
+                    <div class="rennes-testimonial-author">
+                        <div class="rennes-testimonial-avatar">PL</div>
+                        <div class="rennes-testimonial-info">
+                            <h4>Pierre Leblanc</h4>
+                            <p>Gérant PME, Fougères</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CTA FINALE -->
+    <section class="rennes-final-cta">
+        <div class="rennes-container">
+            <h2>Prêt à lancer votre projet web en Ille-et-Vilaine ?</h2>
+            <p>
+                Discutons ensemble de vos objectifs digitaux autour d'un café à Rennes. Devis personnalisé et conseils gratuits pour votre projet web.
+            </p>
+            <button class="rennes-final-button" onclick="rennesScrollToForm()">
+                Contactez votre agence locale
+            </button>
+        </div>
+    </section>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    const root = document.querySelector('.rennes-wp-scope');
+    if (!root) return;
+
+    // Initialisation EmailJS
+    (function() {
+        emailjs.init('EbZUccJ9uKukb5WRE');
+    })();
+
+    // Animation d'entrée progressive
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+
+    // Initialisation des animations
+    const animatedElements = root.querySelectorAll('.rennes-hero-text, .rennes-hero-form, .rennes-benefit-card, .rennes-testimonial-card, .rennes-features-content, .rennes-features-visual');
+
+    animatedElements.forEach((el, index) => {
+        el.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(el);
+    });
+
+    // Animation immédiate pour le hero
+    setTimeout(() => {
+        const heroText = root.querySelector('.rennes-hero-text');
+        const heroForm = root.querySelector('.rennes-hero-form');
+        if (heroText) heroText.classList.add('animate');
+        if (heroForm) heroForm.classList.add('animate');
+    }, 500);
+
+    // Gestion du formulaire
+    const form = root.querySelector('#rennes-contact-form');
+    const button = root.querySelector('.rennes-cta-button');
+
+    if (form && button) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = form.querySelector('#rennes-name').value;
+            const email = form.querySelector('#rennes-email').value;
+            const project = form.querySelector('#rennes-project').value;
+
+            if (!name || !email || !project) {
+                alert('Veuillez remplir tous les champs.');
+                return;
+            }
+
+            // Animation du bouton
+            button.innerHTML = '⏳ Envoi en cours...';
+            button.style.background = 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)';
+            button.disabled = true;
+
+            // Paramètres EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                project_description: project,
+                to_email: 'contact.capitainepub@gmail.com',
+                subject: 'Nouvelle demande - Agence Web Rennes - web-starting.fr',
+                message: `Nouvelle demande agence web depuis Rennes via web-starting.fr\n\nNom: ${name}\nEmail: ${email}\nProjet: ${project}\n\nSource: Page Agence Rennes - web-starting.fr\nDate: ${new Date().toLocaleString('fr-FR')}\n\nCordialement,\nSystème automatique web-starting.fr`
+            };
+
+            // Envoi via EmailJS
+            emailjs.send('service_btbtgzn', 'template_m06wtf1', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    button.innerHTML = '✅ Demande envoyée !';
+                    button.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+
+                    // Réinitialiser après 3 secondes
+                    setTimeout(() => {
+                        button.innerHTML = 'DEMANDEZ VOTRE DEVIS GRATUIT';
+                        button.style.background = 'linear-gradient(135deg, #e8ff45 0%, #d4f442 100%)';
+                        button.disabled = false;
+                        form.reset();
+                    }, 3000);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    button.innerHTML = '❌ Erreur d\'envoi';
+                    button.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+
+                    // Réinitialiser après 3 secondes
+                    setTimeout(() => {
+                        button.innerHTML = 'DEMANDEZ VOTRE DEVIS GRATUIT';
+                        button.style.background = 'linear-gradient(135deg, #e8ff45 0%, #d4f442 100%)';
+                        button.disabled = false;
+                    }, 3000);
+                });
+        });
+    }
+
+    // Fonction pour scroller vers le formulaire
+    window.rennesScrollToForm = function() {
+        const heroForm = root.querySelector('.rennes-hero-form');
+        if (heroForm) {
+            heroForm.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            // Focus sur le champ nom après le scroll
+            setTimeout(() => {
+                const nameField = heroForm.querySelector('#rennes-name');
+                if (nameField) nameField.focus();
+            }, 1000);
+        }
+    };
+
+    // Effet de parallaxe subtil
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.3;
+        const heroSection = root.querySelector('.rennes-hero-section');
+        if (heroSection) {
+            heroSection.style.transform = `translateY(${rate}px)`;
+        }
+    });
+})();
+</script>
+
+</body>
+</html>

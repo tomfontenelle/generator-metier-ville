@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agence Web Marseille - Bouches-du-Rhône - Web Starting</title>
+    <meta name="description" content="Agence Web à Marseille (Bouches-du-Rhône). Création de sites internet professionnels, e-commerce et applications web. Expertise locale et accompagnement personnalisé.">
+</head>
+<body>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap');
+
+/* RESET COMPLET ET ISOLATION WORDPRESS */
+.marseille-wp-scope {
+    all: initial !important;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    display: block !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #082416 !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    line-height: 1.6 !important;
+    color: #ffffff !important;
+}
+
+.marseille-wp-scope *,
+.marseille-wp-scope *::before,
+.marseille-wp-scope *::after {
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+}
+
+/* HERO SECTION */
+.marseille-hero-section {
+    min-height: 100vh !important;
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 50%, #082416 100%) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 2rem 2rem 0 2rem !important;
+    margin: 0 !important;
+}
+
+.marseille-hero-section::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-image: radial-gradient(circle at 20% 30%, rgba(232, 255, 69, 0.03) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 70%, rgba(232, 255, 69, 0.05) 0%, transparent 50%) !important;
+    pointer-events: none !important;
+}
+
+.marseille-hero-container {
+    max-width: 1400px !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.marseille-hero-content {
+    display: grid !important;
+    grid-template-columns: 1fr 400px !important;
+    gap: 6rem !important;
+    align-items: center !important;
+}
+
+.marseille-hero-text {
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.marseille-hero-text.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.marseille-hero-title {
+    font-size: 4rem !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    margin: 0 0 2rem 0 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.02em !important;
+}
+
+.marseille-highlight-yellow {
+    color: #e8ff45 !important;
+    position: relative !important;
+}
+
+.marseille-hero-subtitle {
+    font-size: 1.25rem !important;
+    font-weight: 400 !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    max-width: 500px !important;
+}
+
+.marseille-hero-form {
+    background: rgba(8, 36, 22, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(232, 255, 69, 0.3) !important;
+    border-radius: 12px !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease 0.3s !important;
+}
+
+.marseille-hero-form.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.marseille-form-group {
+    margin: 0 0 1.5rem 0 !important;
+}
+
+.marseille-form-label {
+    display: block !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: #e8ff45 !important;
+    margin: 0 0 0.5rem 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.marseille-form-input {
+    width: 100% !important;
+    padding: 1rem !important;
+    background: rgba(8, 36, 22, 0.6) !important;
+    border: 1px solid rgba(232, 255, 69, 0.3) !important;
+    border-radius: 6px !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-family: 'Montserrat', sans-serif !important;
+    transition: all 0.3s ease !important;
+    resize: vertical !important;
+    min-height: 3rem !important;
+    font-weight: 400 !important;
+}
+
+.marseille-form-input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 300 !important;
+}
+
+.marseille-form-input:focus {
+    outline: none !important;
+    border-color: #e8ff45 !important;
+    box-shadow: 0 0 0 2px rgba(232, 255, 69, 0.2) !important;
+    background: rgba(8, 36, 22, 0.8) !important;
+    color: #ffffff !important;
+}
+
+.marseille-cta-button {
+    width: 100% !important;
+    padding: 1.25rem 2rem !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    color: #082416 !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 4px 15px rgba(232, 255, 69, 0.3) !important;
+}
+
+.marseille-cta-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(232, 255, 69, 0.4) !important;
+    background: linear-gradient(135deg, #d4f442 0%, #e8ff45 100%) !important;
+}
+
+.marseille-trust-badge {
+    text-align: center !important;
+    margin: 1.5rem 0 0 0 !important;
+    font-size: 0.75rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 400 !important;
+}
+
+/* SECTIONS GÉNÉRALES */
+.marseille-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.marseille-section-header {
+    text-align: center !important;
+    margin: 0 0 4rem 0 !important;
+}
+
+.marseille-section-title {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.marseille-section-subtitle {
+    font-size: 1.125rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 auto !important;
+    max-width: 600px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+}
+
+.marseille-highlight {
+    color: #e8ff45 !important;
+    position: relative !important;
+}
+
+/* SECTION POURQUOI */
+.marseille-why-section {
+    padding: 2rem 0 5rem 0 !important;
+    background: #082416 !important;
+    position: relative !important;
+    margin: 0 !important;
+}
+
+.marseille-benefits-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.marseille-benefit-card {
+    background: rgba(8, 36, 22, 0.4) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(232, 255, 69, 0.1) !important;
+    position: relative !important;
+    transition: all 0.3s ease !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+}
+
+.marseille-benefit-card.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.marseille-benefit-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(232, 255, 69, 0.3) !important;
+}
+
+.marseille-benefit-icon {
+    width: 50px !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-size: 20px !important;
+}
+
+.marseille-benefit-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.3 !important;
+}
+
+.marseille-benefit-description {
+    font-size: 0.95rem !important;
+    color: #a0a0a0 !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+/* SECTION FONCTIONNALITÉS */
+.marseille-features-section {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 100%) !important;
+    margin: 0 !important;
+}
+
+.marseille-features-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4rem !important;
+    align-items: center !important;
+}
+
+.marseille-features-content {
+    opacity: 0 !important;
+    transform: translateX(-30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.marseille-features-content.animate {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.marseille-features-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 2rem 0 0 0 !important;
+}
+
+.marseille-feature-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    margin: 0 0 1.5rem 0 !important;
+    padding: 1.5rem !important;
+    background: rgba(8, 36, 22, 0.3) !important;
+    border-radius: 10px !important;
+    border-left: 3px solid #e8ff45 !important;
+    transition: all 0.3s ease !important;
+}
+
+.marseille-feature-item:hover {
+    background: rgba(8, 36, 22, 0.5) !important;
+    transform: translateX(5px) !important;
+}
+
+.marseille-feature-icon {
+    width: 35px !important;
+    height: 35px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 1rem 0 0 !important;
+    flex-shrink: 0 !important;
+    font-size: 16px !important;
+}
+
+.marseille-feature-content h4 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.marseille-feature-content p {
+    font-size: 0.9rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+}
+
+.marseille-features-visual {
+    opacity: 0 !important;
+    transform: translateX(30px) !important;
+    transition: all 0.8s ease 0.2s !important;
+}
+
+.marseille-features-visual.animate {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.marseille-mockup {
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 100%) !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.marseille-mockup-header {
+    height: 30px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 12px 12px 0 0 !important;
+    margin: 0 0 1rem 0 !important;
+}
+
+.marseille-mockup-content {
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 2rem !important;
+    min-height: 200px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+.marseille-mockup-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #082416 !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.marseille-mockup-text {
+    color: #666666 !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-size: 0.9rem !important;
+}
+
+.marseille-mockup-button {
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    color: #082416 !important;
+    padding: 0.75rem 1.5rem !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    font-size: 0.9rem !important;
+}
+
+/* SECTION TÉMOIGNAGES */
+.marseille-testimonials-section {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #0a2d1a 0%, #082416 100%) !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+}
+
+.marseille-testimonials-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.marseille-testimonial-card {
+    background: rgba(8, 36, 22, 0.4) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(232, 255, 69, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    position: relative !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.marseille-testimonial-card.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.marseille-testimonial-quote {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-style: italic !important;
+    color: #e5e5e5 !important;
+}
+
+.marseille-testimonial-author {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.marseille-testimonial-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 1rem 0 0 !important;
+    font-weight: 700 !important;
+    color: #082416 !important;
+    font-size: 0.9rem !important;
+}
+
+.marseille-testimonial-info h4 {
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    margin: 0 0 0.25rem 0 !important;
+    color: #ffffff !important;
+}
+
+.marseille-testimonial-info p {
+    font-size: 0.8rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+}
+
+/* SECTION CTA FINALE */
+.marseille-final-cta {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    text-align: center !important;
+    color: #082416 !important;
+    margin: 0 !important;
+}
+
+.marseille-final-cta h2 {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.2 !important;
+}
+
+.marseille-final-cta p {
+    font-size: 1.125rem !important;
+    margin: 0 0 2rem 0 !important;
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    opacity: 0.8 !important;
+}
+
+.marseille-final-button {
+    background: #082416 !important;
+    color: #ffffff !important;
+    padding: 1.25rem 2.5rem !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 8px 25px rgba(8, 36, 22, 0.3) !important;
+}
+
+.marseille-final-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(8, 36, 22, 0.4) !important;
+    background: #0a2d1a !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .marseille-hero-content {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+        text-align: center !important;
+    }
+
+    .marseille-features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+
+    .marseille-hero-title {
+        font-size: 3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .marseille-hero-section {
+        padding: 1rem 1rem 0 1rem !important;
+        min-height: 70vh !important;
+    }
+
+    .marseille-hero-title {
+        font-size: 2.5rem !important;
+    }
+
+    .marseille-section-title {
+        font-size: 2rem !important;
+    }
+
+    .marseille-final-cta h2 {
+        font-size: 2rem !important;
+    }
+
+    .marseille-benefits-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .marseille-testimonials-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .marseille-container {
+        padding: 0 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .marseille-hero-section {
+        padding: 1.5rem 1rem !important;
+        min-height: 60vh !important;
+    }
+
+    .marseille-hero-content {
+        gap: 2rem !important;
+    }
+
+    .marseille-hero-title {
+        font-size: 2rem !important;
+    }
+
+    .marseille-hero-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .marseille-hero-form {
+        padding: 1.5rem !important;
+    }
+
+    .marseille-section-title {
+        font-size: 1.75rem !important;
+    }
+
+    .marseille-final-cta h2 {
+        font-size: 1.75rem !important;
+    }
+
+    .marseille-why-section,
+    .marseille-features-section,
+    .marseille-testimonials-section,
+    .marseille-final-cta {
+        padding: 3rem 0 !important;
+    }
+}
+</style>
+
+<div class="marseille-wp-scope">
+    <!-- HERO SECTION -->
+    <section class="marseille-hero-section">
+        <div class="marseille-hero-container">
+            <div class="marseille-hero-content">
+                <div class="marseille-hero-text">
+                    <h1 class="marseille-hero-title">
+                        <span class="marseille-highlight-yellow">Agence web</span> à Marseille : création de sites professionnels en Bouches-du-Rhône
+                    </h1>
+                    <p class="marseille-hero-subtitle">
+                        Votre partenaire digital local pour créer un site internet performant. Expertise web, accompagnement personnalisé et présence locale en Bouches-du-Rhône pour faire grandir votre activité.
+                    </p>
+                </div>
+
+                <div class="marseille-hero-form">
+                    <form id="marseille-contact-form">
+                        <div class="marseille-form-group">
+                            <label for="marseille-name" class="marseille-form-label">VOTRE NOM</label>
+                            <input type="text" id="marseille-name" name="name" class="marseille-form-input" placeholder="Jean Dupont" required />
+                        </div>
+
+                        <div class="marseille-form-group">
+                            <label for="marseille-email" class="marseille-form-label">VOTRE EMAIL</label>
+                            <input type="email" id="marseille-email" name="email" class="marseille-form-input" placeholder="jean.dupont@entreprise.fr" required />
+                        </div>
+
+                        <div class="marseille-form-group">
+                            <label for="marseille-project" class="marseille-form-label">DÉCRIVEZ VOTRE PROJET</label>
+                            <textarea id="marseille-project" name="project" class="marseille-form-input" placeholder="Ex: Je suis artisan à Marseille et je souhaite créer un site vitrine pour présenter mes services..." rows="4" required></textarea>
+                        </div>
+
+                        <button type="submit" class="marseille-cta-button">DEMANDEZ VOTRE DEVIS GRATUIT</button>
+                        <div class="marseille-trust-badge">✓ Agence locale Bouches-du-Rhône • Réponse sous 24h • Sans engagement</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION POURQUOI AGENCE LOCALE -->
+    <section class="marseille-why-section">
+        <div class="marseille-container">
+            <div class="marseille-section-header">
+                <h2 class="marseille-section-title">
+                    Pourquoi choisir une <span class="marseille-highlight">agence web locale</span> à Marseille ?
+                </h2>
+                <p class="marseille-section-subtitle">
+                    Une agence de proximité qui comprend les enjeux des entreprises marseillaises. Disponibilité, réactivité et connaissance du territoire pour un accompagnement digital sur-mesure.
+                </p>
+            </div>
+
+            <div class="marseille-benefits-grid">
+                
+                <div class="marseille-benefit-card">
+                    <div class="marseille-benefit-icon">📍</div>
+                    <h3 class="marseille-benefit-title">Proximité et disponibilité</h3>
+                    <p class="marseille-benefit-description">
+                        Basée à Marseille, notre agence est disponible pour des rendez-vous physiques, une vraie relation de confiance et un suivi personnalisé de votre projet web.
+                    </p>
+                </div>
+                <div class="marseille-benefit-card">
+                    <div class="marseille-benefit-icon">🎯</div>
+                    <h3 class="marseille-benefit-title">Expertise SEO local Bouches-du-Rhône</h3>
+                    <p class="marseille-benefit-description">
+                        Maîtrise du référencement local pour positionner votre entreprise sur Google à Marseille, Aix-en-Provence, Aubagne et toute la Bouches-du-Rhône.
+                    </p>
+                </div>
+                <div class="marseille-benefit-card">
+                    <div class="marseille-benefit-icon">🚀</div>
+                    <h3 class="marseille-benefit-title">Solutions sur-mesure adaptées</h3>
+                    <p class="marseille-benefit-description">
+                        Sites vitrines, e-commerce, applications web... Nous créons des solutions digitales parfaitement adaptées aux besoins des entreprises marseillaises.
+                    </p>
+                </div>
+                <div class="marseille-benefit-card">
+                    <div class="marseille-benefit-icon">💼</div>
+                    <h3 class="marseille-benefit-title">Accompagnement complet</h3>
+                    <p class="marseille-benefit-description">
+                        De la conception à la maintenance, en passant par l'hébergement et la formation. Un interlocuteur unique pour tous vos besoins digitaux.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FONCTIONNALITÉS -->
+    <section class="marseille-features-section">
+        <div class="marseille-container">
+            <div class="marseille-features-grid">
+                <div class="marseille-features-content">
+                    <h2 class="marseille-section-title">
+                        Nos <span class="marseille-highlight">services web</span> pour entreprises marseillaises
+                    </h2>
+                    <p class="marseille-section-subtitle">
+                        Une gamme complète de solutions digitales pour développer votre visibilité et votre activité en Bouches-du-Rhône et au-delà.
+                    </p>
+
+                    <ul class="marseille-features-list">
+                        
+                        <li class="marseille-feature-item">
+                            <div class="marseille-feature-icon">🌐</div>
+                            <div class="marseille-feature-content">
+                                <h4>Création de sites vitrines</h4>
+                                <p>Sites professionnels responsive pour artisans, PME, professions libérales. Design moderne et optimisation SEO pour capter vos clients locaux.</p>
+                            </div>
+                        </li>
+                        <li class="marseille-feature-item">
+                            <div class="marseille-feature-icon">🛍️</div>
+                            <div class="marseille-feature-content">
+                                <h4>E-commerce et boutiques en ligne</h4>
+                                <p>Solutions WooCommerce, Shopify ou PrestaShop pour vendre vos produits 24h/24. Paiement sécurisé, gestion des stocks et livraison intégrée.</p>
+                            </div>
+                        </li>
+                        <li class="marseille-feature-item">
+                            <div class="marseille-feature-icon">📱</div>
+                            <div class="marseille-feature-content">
+                                <h4>Applications web sur-mesure</h4>
+                                <p>Développement d'outils métier personnalisés : CRM, gestion interne, plateformes de réservation adaptées à vos processus spécifiques.</p>
+                            </div>
+                        </li>
+                        <li class="marseille-feature-item">
+                            <div class="marseille-feature-icon">🔧</div>
+                            <div class="marseille-feature-content">
+                                <h4>Maintenance et support continu</h4>
+                                <p>Mises à jour, sauvegardes, sécurité, corrections de bugs. Votre site reste performant et sécurisé avec notre contrat de maintenance.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="marseille-features-visual">
+                    <div class="marseille-mockup">
+                        <div class="marseille-mockup-header"></div>
+                        <div class="marseille-mockup-content">
+                            <h3 class="marseille-mockup-title">Entreprise Marseillaises</h3>
+                            <p class="marseille-mockup-text">Site professionnel • SEO local<br />Marseille • Bouches-du-Rhône</p>
+                            <button class="marseille-mockup-button">Découvrir nos réalisations</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TÉMOIGNAGES -->
+    <section class="marseille-testimonials-section">
+        <div class="marseille-container">
+            <div class="marseille-section-header">
+                <h2 class="marseille-section-title" style="color: #ffffff !important;">
+                    Ils nous ont fait <span class="marseille-highlight">confiance</span> en Bouches-du-Rhône
+                </h2>
+                <p class="marseille-section-subtitle" style="color: #e5e5e5 !important;">
+                    Découvrez les témoignages d'entrepreneurs et d'entreprises marseillaises satisfaits de nos services web.
+                </p>
+            </div>
+
+            <div class="marseille-testimonials-grid">
+                
+                <div class="marseille-testimonial-card">
+                    <p class="marseille-testimonial-quote">
+                        "Une agence réactive et professionnelle. Mon site vitrine est exactement ce que je voulais. Mes clients me trouvent maintenant facilement sur Google à Marseille !"
+                    </p>
+                    <div class="marseille-testimonial-author">
+                        <div class="marseille-testimonial-avatar">JD</div>
+                        <div class="marseille-testimonial-info">
+                            <h4>Jean Dupont</h4>
+                            <p>Artisan plombier, Marseille</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="marseille-testimonial-card">
+                    <p class="marseille-testimonial-quote">
+                        "L'accompagnement local fait toute la différence. Des rendez-vous en face-à-face, une vraie écoute et un site e-commerce qui cartonne depuis son lancement."
+                    </p>
+                    <div class="marseille-testimonial-author">
+                        <div class="marseille-testimonial-avatar">SM</div>
+                        <div class="marseille-testimonial-info">
+                            <h4>Sophie Martin</h4>
+                            <p>Commerçante, Aix-en-Provence</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="marseille-testimonial-card">
+                    <p class="marseille-testimonial-quote">
+                        "Excellente prestation ! Notre site web reflète parfaitement notre activité. Le référencement local nous apporte de nouveaux clients chaque semaine."
+                    </p>
+                    <div class="marseille-testimonial-author">
+                        <div class="marseille-testimonial-avatar">PL</div>
+                        <div class="marseille-testimonial-info">
+                            <h4>Pierre Leblanc</h4>
+                            <p>Gérant PME, Aubagne</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CTA FINALE -->
+    <section class="marseille-final-cta">
+        <div class="marseille-container">
+            <h2>Prêt à lancer votre projet web en Bouches-du-Rhône ?</h2>
+            <p>
+                Discutons ensemble de vos objectifs digitaux autour d'un café à Marseille. Devis personnalisé et conseils gratuits pour votre projet web.
+            </p>
+            <button class="marseille-final-button" onclick="marseilleScrollToForm()">
+                Contactez votre agence locale
+            </button>
+        </div>
+    </section>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    const root = document.querySelector('.marseille-wp-scope');
+    if (!root) return;
+
+    // Initialisation EmailJS
+    (function() {
+        emailjs.init('EbZUccJ9uKukb5WRE');
+    })();
+
+    // Animation d'entrée progressive
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+
+    // Initialisation des animations
+    const animatedElements = root.querySelectorAll('.marseille-hero-text, .marseille-hero-form, .marseille-benefit-card, .marseille-testimonial-card, .marseille-features-content, .marseille-features-visual');
+
+    animatedElements.forEach((el, index) => {
+        el.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(el);
+    });
+
+    // Animation immédiate pour le hero
+    setTimeout(() => {
+        const heroText = root.querySelector('.marseille-hero-text');
+        const heroForm = root.querySelector('.marseille-hero-form');
+        if (heroText) heroText.classList.add('animate');
+        if (heroForm) heroForm.classList.add('animate');
+    }, 500);
+
+    // Gestion du formulaire
+    const form = root.querySelector('#marseille-contact-form');
+    const button = root.querySelector('.marseille-cta-button');
+
+    if (form && button) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = form.querySelector('#marseille-name').value;
+            const email = form.querySelector('#marseille-email').value;
+            const project = form.querySelector('#marseille-project').value;
+
+            if (!name || !email || !project) {
+                alert('Veuillez remplir tous les champs.');
+                return;
+            }
+
+            // Animation du bouton
+            button.innerHTML = '⏳ Envoi en cours...';
+            button.style.background = 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)';
+            button.disabled = true;
+
+            // Paramètres EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                project_description: project,
+                to_email: 'contact.capitainepub@gmail.com',
+                subject: 'Nouvelle demande - Agence Web Marseille - web-starting.fr',
+                message: `Nouvelle demande agence web depuis Marseille via web-starting.fr\n\nNom: ${name}\nEmail: ${email}\nProjet: ${project}\n\nSource: Page Agence Marseille - web-starting.fr\nDate: ${new Date().toLocaleString('fr-FR')}\n\nCordialement,\nSystème automatique web-starting.fr`
+            };
+
+            // Envoi via EmailJS
+            emailjs.send('service_btbtgzn', 'template_m06wtf1', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    button.innerHTML = '✅ Demande envoyée !';
+                    button.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+
+                    // Réinitialiser après 3 secondes
+                    setTimeout(() => {
+                        button.innerHTML = 'DEMANDEZ VOTRE DEVIS GRATUIT';
+                        button.style.background = 'linear-gradient(135deg, #e8ff45 0%, #d4f442 100%)';
+                        button.disabled = false;
+                        form.reset();
+                    }, 3000);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    button.innerHTML = '❌ Erreur d\'envoi';
+                    button.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+
+                    // Réinitialiser après 3 secondes
+                    setTimeout(() => {
+                        button.innerHTML = 'DEMANDEZ VOTRE DEVIS GRATUIT';
+                        button.style.background = 'linear-gradient(135deg, #e8ff45 0%, #d4f442 100%)';
+                        button.disabled = false;
+                    }, 3000);
+                });
+        });
+    }
+
+    // Fonction pour scroller vers le formulaire
+    window.marseilleScrollToForm = function() {
+        const heroForm = root.querySelector('.marseille-hero-form');
+        if (heroForm) {
+            heroForm.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            // Focus sur le champ nom après le scroll
+            setTimeout(() => {
+                const nameField = heroForm.querySelector('#marseille-name');
+                if (nameField) nameField.focus();
+            }, 1000);
+        }
+    };
+
+    // Effet de parallaxe subtil
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.3;
+        const heroSection = root.querySelector('.marseille-hero-section');
+        if (heroSection) {
+            heroSection.style.transform = `translateY(${rate}px)`;
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
