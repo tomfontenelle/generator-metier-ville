@@ -1,0 +1,24 @@
+{
+  "name": "generator-metier-ville",
+  "version": "1.0.0",
+  "description": "Outil d'automatisation pour générer des pages HTML basées sur un template métier + ville",
+  "main": "generator.js",
+  "scripts": {
+    "generate": "node generator.js",
+    "generate:all": "node generator.js --all",
+    "help": "node generator.js --help"
+  },
+  "keywords": [
+    "generator",
+    "html",
+    "template",
+    "seo",
+    "local",
+    "landing-page"
+  ],
+  "author": "Web Starting",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

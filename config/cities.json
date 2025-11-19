@@ -1,0 +1,94 @@
+{
+  "cities": [
+    {
+      "name": "La Roche-sur-Yon",
+      "slug": "larochesuryon",
+      "departement": "Vendée",
+      "departement_code": "85",
+      "region": "Pays de la Loire",
+      "neighboring_cities": ["Challans", "Les Herbiers", "Les Sables-d'Olonne"],
+      "postal_code": "85000"
+    },
+    {
+      "name": "Nantes",
+      "slug": "nantes",
+      "departement": "Loire-Atlantique",
+      "departement_code": "44",
+      "region": "Pays de la Loire",
+      "neighboring_cities": ["Saint-Nazaire", "Rezé", "Saint-Herblain"],
+      "postal_code": "44000"
+    },
+    {
+      "name": "Angers",
+      "slug": "angers",
+      "departement": "Maine-et-Loire",
+      "departement_code": "49",
+      "region": "Pays de la Loire",
+      "neighboring_cities": ["Cholet", "Saumur", "Avrillé"],
+      "postal_code": "49000"
+    },
+    {
+      "name": "Paris",
+      "slug": "paris",
+      "departement": "Paris",
+      "departement_code": "75",
+      "region": "Île-de-France",
+      "neighboring_cities": ["Boulogne-Billancourt", "Montreuil", "Saint-Denis"],
+      "postal_code": "75000"
+    },
+    {
+      "name": "Lyon",
+      "slug": "lyon",
+      "departement": "Rhône",
+      "departement_code": "69",
+      "region": "Auvergne-Rhône-Alpes",
+      "neighboring_cities": ["Villeurbanne", "Vénissieux", "Caluire-et-Cuire"],
+      "postal_code": "69000"
+    },
+    {
+      "name": "Marseille",
+      "slug": "marseille",
+      "departement": "Bouches-du-Rhône",
+      "departement_code": "13",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "neighboring_cities": ["Aix-en-Provence", "Aubagne", "Martigues"],
+      "postal_code": "13000"
+    },
+    {
+      "name": "Toulouse",
+      "slug": "toulouse",
+      "departement": "Haute-Garonne",
+      "departement_code": "31",
+      "region": "Occitanie",
+      "neighboring_cities": ["Blagnac", "Colomiers", "Tournefeuille"],
+      "postal_code": "31000"
+    },
+    {
+      "name": "Bordeaux",
+      "slug": "bordeaux",
+      "departement": "Gironde",
+      "departement_code": "33",
+      "region": "Nouvelle-Aquitaine",
+      "neighboring_cities": ["Mérignac", "Pessac", "Talence"],
+      "postal_code": "33000"
+    },
+    {
+      "name": "Lille",
+      "slug": "lille",
+      "departement": "Nord",
+      "departement_code": "59",
+      "region": "Hauts-de-France",
+      "neighboring_cities": ["Roubaix", "Tourcoing", "Villeneuve-d'Ascq"],
+      "postal_code": "59000"
+    },
+    {
+      "name": "Rennes",
+      "slug": "rennes",
+      "departement": "Ille-et-Vilaine",
+      "departement_code": "35",
+      "region": "Bretagne",
+      "neighboring_cities": ["Saint-Malo", "Fougères", "Vitré"],
+      "postal_code": "35000"
+    }
+  ]
+}

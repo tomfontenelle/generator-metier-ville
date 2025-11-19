@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{METIER_TITLE}} {{VILLE}} - {{DEPARTEMENT}} - Web Starting</title>
+    <meta name="description" content="{{METIER_TITLE}} à {{VILLE}} ({{DEPARTEMENT}}). {{META_DESCRIPTION}}">
+</head>
+<body>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap');
+
+/* RESET COMPLET ET ISOLATION WORDPRESS */
+.{{CSS_PREFIX}}-wp-scope {
+    all: initial !important;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    display: block !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #082416 !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    line-height: 1.6 !important;
+    color: #ffffff !important;
+}
+
+.{{CSS_PREFIX}}-wp-scope *,
+.{{CSS_PREFIX}}-wp-scope *::before,
+.{{CSS_PREFIX}}-wp-scope *::after {
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+}
+
+/* HERO SECTION */
+.{{CSS_PREFIX}}-hero-section {
+    min-height: 100vh !important;
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 50%, #082416 100%) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 2rem 2rem 0 2rem !important;
+    margin: 0 !important;
+}
+
+.{{CSS_PREFIX}}-hero-section::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-image: radial-gradient(circle at 20% 30%, rgba(232, 255, 69, 0.03) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 70%, rgba(232, 255, 69, 0.05) 0%, transparent 50%) !important;
+    pointer-events: none !important;
+}
+
+.{{CSS_PREFIX}}-hero-container {
+    max-width: 1400px !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.{{CSS_PREFIX}}-hero-content {
+    display: grid !important;
+    grid-template-columns: 1fr 400px !important;
+    gap: 6rem !important;
+    align-items: center !important;
+}
+
+.{{CSS_PREFIX}}-hero-text {
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.{{CSS_PREFIX}}-hero-text.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.{{CSS_PREFIX}}-hero-title {
+    font-size: 4rem !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    margin: 0 0 2rem 0 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.02em !important;
+}
+
+.{{CSS_PREFIX}}-highlight-yellow {
+    color: #e8ff45 !important;
+    position: relative !important;
+}
+
+.{{CSS_PREFIX}}-hero-subtitle {
+    font-size: 1.25rem !important;
+    font-weight: 400 !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    max-width: 500px !important;
+}
+
+.{{CSS_PREFIX}}-hero-form {
+    background: rgba(8, 36, 22, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(232, 255, 69, 0.3) !important;
+    border-radius: 12px !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease 0.3s !important;
+}
+
+.{{CSS_PREFIX}}-hero-form.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.{{CSS_PREFIX}}-form-group {
+    margin: 0 0 1.5rem 0 !important;
+}
+
+.{{CSS_PREFIX}}-form-label {
+    display: block !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: #e8ff45 !important;
+    margin: 0 0 0.5rem 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.{{CSS_PREFIX}}-form-input {
+    width: 100% !important;
+    padding: 1rem !important;
+    background: rgba(8, 36, 22, 0.6) !important;
+    border: 1px solid rgba(232, 255, 69, 0.3) !important;
+    border-radius: 6px !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-family: 'Montserrat', sans-serif !important;
+    transition: all 0.3s ease !important;
+    resize: vertical !important;
+    min-height: 3rem !important;
+    font-weight: 400 !important;
+}
+
+.{{CSS_PREFIX}}-form-input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 300 !important;
+}
+
+.{{CSS_PREFIX}}-form-input:focus {
+    outline: none !important;
+    border-color: #e8ff45 !important;
+    box-shadow: 0 0 0 2px rgba(232, 255, 69, 0.2) !important;
+    background: rgba(8, 36, 22, 0.8) !important;
+    color: #ffffff !important;
+}
+
+.{{CSS_PREFIX}}-cta-button {
+    width: 100% !important;
+    padding: 1.25rem 2rem !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    color: #082416 !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 4px 15px rgba(232, 255, 69, 0.3) !important;
+}
+
+.{{CSS_PREFIX}}-cta-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(232, 255, 69, 0.4) !important;
+    background: linear-gradient(135deg, #d4f442 0%, #e8ff45 100%) !important;
+}
+
+.{{CSS_PREFIX}}-trust-badge {
+    text-align: center !important;
+    margin: 1.5rem 0 0 0 !important;
+    font-size: 0.75rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 400 !important;
+}
+
+/* SECTIONS GÉNÉRALES */
+.{{CSS_PREFIX}}-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.{{CSS_PREFIX}}-section-header {
+    text-align: center !important;
+    margin: 0 0 4rem 0 !important;
+}
+
+.{{CSS_PREFIX}}-section-title {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.{{CSS_PREFIX}}-section-subtitle {
+    font-size: 1.125rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 auto !important;
+    max-width: 600px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+}
+
+.{{CSS_PREFIX}}-highlight {
+    color: #e8ff45 !important;
+    position: relative !important;
+}
+
+/* SECTION POURQUOI */
+.{{CSS_PREFIX}}-why-section {
+    padding: 2rem 0 5rem 0 !important;
+    background: #082416 !important;
+    position: relative !important;
+    margin: 0 !important;
+}
+
+.{{CSS_PREFIX}}-benefits-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.{{CSS_PREFIX}}-benefit-card {
+    background: rgba(8, 36, 22, 0.4) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(232, 255, 69, 0.1) !important;
+    position: relative !important;
+    transition: all 0.3s ease !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+}
+
+.{{CSS_PREFIX}}-benefit-card.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.{{CSS_PREFIX}}-benefit-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(232, 255, 69, 0.3) !important;
+}
+
+.{{CSS_PREFIX}}-benefit-icon {
+    width: 50px !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-size: 20px !important;
+}
+
+.{{CSS_PREFIX}}-benefit-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.3 !important;
+}
+
+.{{CSS_PREFIX}}-benefit-description {
+    font-size: 0.95rem !important;
+    color: #a0a0a0 !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+/* SECTION FONCTIONNALITÉS */
+.{{CSS_PREFIX}}-features-section {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 100%) !important;
+    margin: 0 !important;
+}
+
+.{{CSS_PREFIX}}-features-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4rem !important;
+    align-items: center !important;
+}
+
+.{{CSS_PREFIX}}-features-content {
+    opacity: 0 !important;
+    transform: translateX(-30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.{{CSS_PREFIX}}-features-content.animate {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.{{CSS_PREFIX}}-features-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 2rem 0 0 0 !important;
+}
+
+.{{CSS_PREFIX}}-feature-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    margin: 0 0 1.5rem 0 !important;
+    padding: 1.5rem !important;
+    background: rgba(8, 36, 22, 0.3) !important;
+    border-radius: 10px !important;
+    border-left: 3px solid #e8ff45 !important;
+    transition: all 0.3s ease !important;
+}
+
+.{{CSS_PREFIX}}-feature-item:hover {
+    background: rgba(8, 36, 22, 0.5) !important;
+    transform: translateX(5px) !important;
+}
+
+.{{CSS_PREFIX}}-feature-icon {
+    width: 35px !important;
+    height: 35px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 1rem 0 0 !important;
+    flex-shrink: 0 !important;
+    font-size: 16px !important;
+}
+
+.{{CSS_PREFIX}}-feature-content h4 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.{{CSS_PREFIX}}-feature-content p {
+    font-size: 0.9rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+}
+
+.{{CSS_PREFIX}}-features-visual {
+    opacity: 0 !important;
+    transform: translateX(30px) !important;
+    transition: all 0.8s ease 0.2s !important;
+}
+
+.{{CSS_PREFIX}}-features-visual.animate {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.{{CSS_PREFIX}}-mockup {
+    background: linear-gradient(135deg, #082416 0%, #0a2d1a 100%) !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.{{CSS_PREFIX}}-mockup-header {
+    height: 30px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 12px 12px 0 0 !important;
+    margin: 0 0 1rem 0 !important;
+}
+
+.{{CSS_PREFIX}}-mockup-content {
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 2rem !important;
+    min-height: 200px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+.{{CSS_PREFIX}}-mockup-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #082416 !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.{{CSS_PREFIX}}-mockup-text {
+    color: #666666 !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-size: 0.9rem !important;
+}
+
+.{{CSS_PREFIX}}-mockup-button {
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    color: #082416 !important;
+    padding: 0.75rem 1.5rem !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    font-size: 0.9rem !important;
+}
+
+/* SECTION TÉMOIGNAGES */
+.{{CSS_PREFIX}}-testimonials-section {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #0a2d1a 0%, #082416 100%) !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+}
+
+.{{CSS_PREFIX}}-testimonials-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.{{CSS_PREFIX}}-testimonial-card {
+    background: rgba(8, 36, 22, 0.4) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(232, 255, 69, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    position: relative !important;
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: all 0.8s ease !important;
+}
+
+.{{CSS_PREFIX}}-testimonial-card.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.{{CSS_PREFIX}}-testimonial-quote {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin: 0 0 1.5rem 0 !important;
+    font-style: italic !important;
+    color: #e5e5e5 !important;
+}
+
+.{{CSS_PREFIX}}-testimonial-author {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.{{CSS_PREFIX}}-testimonial-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 1rem 0 0 !important;
+    font-weight: 700 !important;
+    color: #082416 !important;
+    font-size: 0.9rem !important;
+}
+
+.{{CSS_PREFIX}}-testimonial-info h4 {
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    margin: 0 0 0.25rem 0 !important;
+    color: #ffffff !important;
+}
+
+.{{CSS_PREFIX}}-testimonial-info p {
+    font-size: 0.8rem !important;
+    color: #a0a0a0 !important;
+    margin: 0 !important;
+}
+
+/* SECTION CTA FINALE */
+.{{CSS_PREFIX}}-final-cta {
+    padding: 5rem 0 !important;
+    background: linear-gradient(135deg, #e8ff45 0%, #d4f442 100%) !important;
+    text-align: center !important;
+    color: #082416 !important;
+    margin: 0 !important;
+}
+
+.{{CSS_PREFIX}}-final-cta h2 {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin: 0 0 1rem 0 !important;
+    line-height: 1.2 !important;
+}
+
+.{{CSS_PREFIX}}-final-cta p {
+    font-size: 1.125rem !important;
+    margin: 0 0 2rem 0 !important;
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    opacity: 0.8 !important;
+}
+
+.{{CSS_PREFIX}}-final-button {
+    background: #082416 !important;
+    color: #ffffff !important;
+    padding: 1.25rem 2.5rem !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 8px 25px rgba(8, 36, 22, 0.3) !important;
+}
+
+.{{CSS_PREFIX}}-final-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(8, 36, 22, 0.4) !important;
+    background: #0a2d1a !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .{{CSS_PREFIX}}-hero-content {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+        text-align: center !important;
+    }
+
+    .{{CSS_PREFIX}}-features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+
+    .{{CSS_PREFIX}}-hero-title {
+        font-size: 3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .{{CSS_PREFIX}}-hero-section {
+        padding: 1rem 1rem 0 1rem !important;
+        min-height: 70vh !important;
+    }
+
+    .{{CSS_PREFIX}}-hero-title {
+        font-size: 2.5rem !important;
+    }
+
+    .{{CSS_PREFIX}}-section-title {
+        font-size: 2rem !important;
+    }
+
+    .{{CSS_PREFIX}}-final-cta h2 {
+        font-size: 2rem !important;
+    }
+
+    .{{CSS_PREFIX}}-benefits-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .{{CSS_PREFIX}}-testimonials-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .{{CSS_PREFIX}}-container {
+        padding: 0 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .{{CSS_PREFIX}}-hero-section {
+        padding: 1.5rem 1rem !important;
+        min-height: 60vh !important;
+    }
+
+    .{{CSS_PREFIX}}-hero-content {
+        gap: 2rem !important;
+    }
+
+    .{{CSS_PREFIX}}-hero-title {
+        font-size: 2rem !important;
+    }
+
+    .{{CSS_PREFIX}}-hero-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .{{CSS_PREFIX}}-hero-form {
+        padding: 1.5rem !important;
+    }
+
+    .{{CSS_PREFIX}}-section-title {
+        font-size: 1.75rem !important;
+    }
+
+    .{{CSS_PREFIX}}-final-cta h2 {
+        font-size: 1.75rem !important;
+    }
+
+    .{{CSS_PREFIX}}-why-section,
+    .{{CSS_PREFIX}}-features-section,
+    .{{CSS_PREFIX}}-testimonials-section,
+    .{{CSS_PREFIX}}-final-cta {
+        padding: 3rem 0 !important;
+    }
+}
+</style>
+
+<div class="{{CSS_PREFIX}}-wp-scope">
+    <!-- HERO SECTION -->
+    <section class="{{CSS_PREFIX}}-hero-section">
+        <div class="{{CSS_PREFIX}}-hero-container">
+            <div class="{{CSS_PREFIX}}-hero-content">
+                <div class="{{CSS_PREFIX}}-hero-text">
+                    <h1 class="{{CSS_PREFIX}}-hero-title">
+                        <span class="{{CSS_PREFIX}}-highlight-yellow">{{HERO_HIGHLIGHT}}</span> {{HERO_TITLE}}
+                    </h1>
+                    <p class="{{CSS_PREFIX}}-hero-subtitle">
+                        {{HERO_SUBTITLE}}
+                    </p>
+                </div>
+
+                <div class="{{CSS_PREFIX}}-hero-form">
+                    <form id="{{CSS_PREFIX}}-contact-form">
+                        <div class="{{CSS_PREFIX}}-form-group">
+                            <label for="{{CSS_PREFIX}}-name" class="{{CSS_PREFIX}}-form-label">VOTRE NOM</label>
+                            <input type="text" id="{{CSS_PREFIX}}-name" name="name" class="{{CSS_PREFIX}}-form-input" placeholder="Jean Dupont" required />
+                        </div>
+
+                        <div class="{{CSS_PREFIX}}-form-group">
+                            <label for="{{CSS_PREFIX}}-email" class="{{CSS_PREFIX}}-form-label">VOTRE EMAIL</label>
+                            <input type="email" id="{{CSS_PREFIX}}-email" name="email" class="{{CSS_PREFIX}}-form-input" placeholder="jean.dupont@entreprise.fr" required />
+                        </div>
+
+                        <div class="{{CSS_PREFIX}}-form-group">
+                            <label for="{{CSS_PREFIX}}-project" class="{{CSS_PREFIX}}-form-label">DÉCRIVEZ VOTRE PROJET</label>
+                            <textarea id="{{CSS_PREFIX}}-project" name="project" class="{{CSS_PREFIX}}-form-input" placeholder="{{FORM_PLACEHOLDER}}" rows="4" required></textarea>
+                        </div>
+
+                        <button type="submit" class="{{CSS_PREFIX}}-cta-button">{{CTA_BUTTON}}</button>
+                        <div class="{{CSS_PREFIX}}-trust-badge">{{TRUST_BADGE}}</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION POURQUOI AGENCE LOCALE -->
+    <section class="{{CSS_PREFIX}}-why-section">
+        <div class="{{CSS_PREFIX}}-container">
+            <div class="{{CSS_PREFIX}}-section-header">
+                <h2 class="{{CSS_PREFIX}}-section-title">
+                    {{WHY_TITLE}}
+                </h2>
+                <p class="{{CSS_PREFIX}}-section-subtitle">
+                    {{WHY_SUBTITLE}}
+                </p>
+            </div>
+
+            <div class="{{CSS_PREFIX}}-benefits-grid">
+                {{BENEFITS_CARDS}}
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FONCTIONNALITÉS -->
+    <section class="{{CSS_PREFIX}}-features-section">
+        <div class="{{CSS_PREFIX}}-container">
+            <div class="{{CSS_PREFIX}}-features-grid">
+                <div class="{{CSS_PREFIX}}-features-content">
+                    <h2 class="{{CSS_PREFIX}}-section-title">
+                        {{FEATURES_TITLE}}
+                    </h2>
+                    <p class="{{CSS_PREFIX}}-section-subtitle">
+                        {{FEATURES_SUBTITLE}}
+                    </p>
+
+                    <ul class="{{CSS_PREFIX}}-features-list">
+                        {{FEATURES_LIST}}
+                    </ul>
+                </div>
+
+                <div class="{{CSS_PREFIX}}-features-visual">
+                    <div class="{{CSS_PREFIX}}-mockup">
+                        <div class="{{CSS_PREFIX}}-mockup-header"></div>
+                        <div class="{{CSS_PREFIX}}-mockup-content">
+                            <h3 class="{{CSS_PREFIX}}-mockup-title">{{MOCKUP_TITLE}}</h3>
+                            <p class="{{CSS_PREFIX}}-mockup-text">{{MOCKUP_TEXT}}</p>
+                            <button class="{{CSS_PREFIX}}-mockup-button">{{MOCKUP_BUTTON}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TÉMOIGNAGES -->
+    <section class="{{CSS_PREFIX}}-testimonials-section">
+        <div class="{{CSS_PREFIX}}-container">
+            <div class="{{CSS_PREFIX}}-section-header">
+                <h2 class="{{CSS_PREFIX}}-section-title" style="color: #ffffff !important;">
+                    {{TESTIMONIALS_TITLE}}
+                </h2>
+                <p class="{{CSS_PREFIX}}-section-subtitle" style="color: #e5e5e5 !important;">
+                    {{TESTIMONIALS_SUBTITLE}}
+                </p>
+            </div>
+
+            <div class="{{CSS_PREFIX}}-testimonials-grid">
+                {{TESTIMONIALS_CARDS}}
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CTA FINALE -->
+    <section class="{{CSS_PREFIX}}-final-cta">
+        <div class="{{CSS_PREFIX}}-container">
+            <h2>{{FINAL_CTA_TITLE}}</h2>
+            <p>
+                {{FINAL_CTA_TEXT}}
+            </p>
+            <button class="{{CSS_PREFIX}}-final-button" onclick="{{JS_PREFIX}}ScrollToForm()">
+                {{FINAL_CTA_BUTTON}}
+            </button>
+        </div>
+    </section>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    const root = document.querySelector('.{{CSS_PREFIX}}-wp-scope');
+    if (!root) return;
+
+    // Initialisation EmailJS
+    (function() {
+        emailjs.init('{{EMAILJS_USER_ID}}');
+    })();
+
+    // Animation d'entrée progressive
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+
+    // Initialisation des animations
+    const animatedElements = root.querySelectorAll('.{{CSS_PREFIX}}-hero-text, .{{CSS_PREFIX}}-hero-form, .{{CSS_PREFIX}}-benefit-card, .{{CSS_PREFIX}}-testimonial-card, .{{CSS_PREFIX}}-features-content, .{{CSS_PREFIX}}-features-visual');
+
+    animatedElements.forEach((el, index) => {
+        el.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(el);
+    });
+
+    // Animation immédiate pour le hero
+    setTimeout(() => {
+        const heroText = root.querySelector('.{{CSS_PREFIX}}-hero-text');
+        const heroForm = root.querySelector('.{{CSS_PREFIX}}-hero-form');
+        if (heroText) heroText.classList.add('animate');
+        if (heroForm) heroForm.classList.add('animate');
+    }, 500);
+
+    // Gestion du formulaire
+    const form = root.querySelector('#{{CSS_PREFIX}}-contact-form');
+    const button = root.querySelector('.{{CSS_PREFIX}}-cta-button');
+
+    if (form && button) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = form.querySelector('#{{CSS_PREFIX}}-name').value;
+            const email = form.querySelector('#{{CSS_PREFIX}}-email').value;
+            const project = form.querySelector('#{{CSS_PREFIX}}-project').value;
+
+            if (!name || !email || !project) {
+                alert('Veuillez remplir tous les champs.');
+                return;
+            }
+
+            // Animation du bouton
+            button.innerHTML = '⏳ Envoi en cours...';
+            button.style.background = 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)';
+            button.disabled = true;
+
+            // Paramètres EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                project_description: project,
+                to_email: '{{CONTACT_EMAIL}}',
+                subject: '{{EMAIL_SUBJECT}}',
+                message: `{{EMAIL_MESSAGE_TEMPLATE}}`
+            };
+
+            // Envoi via EmailJS
+            emailjs.send('{{EMAILJS_SERVICE_ID}}', '{{EMAILJS_TEMPLATE_ID}}', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    button.innerHTML = '✅ Demande envoyée !';
+                    button.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+
+                    // Réinitialiser après 3 secondes
+                    setTimeout(() => {
+                        button.innerHTML = '{{CTA_BUTTON}}';
+                        button.style.background = 'linear-gradient(135deg, #e8ff45 0%, #d4f442 100%)';
+                        button.disabled = false;
+                        form.reset();
+                    }, 3000);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    button.innerHTML = '❌ Erreur d\'envoi';
+                    button.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+
+                    // Réinitialiser après 3 secondes
+                    setTimeout(() => {
+                        button.innerHTML = '{{CTA_BUTTON}}';
+                        button.style.background = 'linear-gradient(135deg, #e8ff45 0%, #d4f442 100%)';
+                        button.disabled = false;
+                    }, 3000);
+                });
+        });
+    }
+
+    // Fonction pour scroller vers le formulaire
+    window.{{JS_PREFIX}}ScrollToForm = function() {
+        const heroForm = root.querySelector('.{{CSS_PREFIX}}-hero-form');
+        if (heroForm) {
+            heroForm.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            // Focus sur le champ nom après le scroll
+            setTimeout(() => {
+                const nameField = heroForm.querySelector('#{{CSS_PREFIX}}-name');
+                if (nameField) nameField.focus();
+            }, 1000);
+        }
+    };
+
+    // Effet de parallaxe subtil
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.3;
+        const heroSection = root.querySelector('.{{CSS_PREFIX}}-hero-section');
+        if (heroSection) {
+            heroSection.style.transform = `translateY(${rate}px)`;
+        }
+    });
+})();
+</script>
+
+</body>
+</html>

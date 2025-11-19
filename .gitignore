@@ -1,0 +1,23 @@
+# Dossier de sortie
+output/
+
+# Node modules
+node_modules/
+
+# Fichiers de log
+*.log
+npm-debug.log*
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environnement
+.env
+.env.local

@@ -1,0 +1,105 @@
+{
+  "professions": {
+    "agence-web": {
+      "name": "Agence Web",
+      "metier_title": "Agence Web",
+      "meta_description": "Création de sites internet professionnels, e-commerce et applications web. Expertise locale et accompagnement personnalisé.",
+      "hero_highlight": "Agence web",
+      "hero_title": "à {{VILLE}} : création de sites professionnels en {{DEPARTEMENT}}",
+      "hero_subtitle": "Votre partenaire digital local pour créer un site internet performant. Expertise web, accompagnement personnalisé et présence locale en {{DEPARTEMENT}} pour faire grandir votre activité.",
+      "form_placeholder": "Ex: Je suis artisan à {{VILLE}} et je souhaite créer un site vitrine pour présenter mes services...",
+      "cta_button": "DEMANDEZ VOTRE DEVIS GRATUIT",
+      "trust_badge": "✓ Agence locale {{DEPARTEMENT}} • Réponse sous 24h • Sans engagement",
+      "why_title": "Pourquoi choisir une <span class=\"{{CSS_PREFIX}}-highlight\">agence web locale</span> à {{VILLE}} ?",
+      "why_subtitle": "Une agence de proximité qui comprend les enjeux des entreprises {{DEPARTEMENT_ADJECTIVE}}. Disponibilité, réactivité et connaissance du territoire pour un accompagnement digital sur-mesure.",
+      "benefits": [
+        {
+          "icon": "📍",
+          "title": "Proximité et disponibilité",
+          "description": "Basée à {{VILLE}}, notre agence est disponible pour des rendez-vous physiques, une vraie relation de confiance et un suivi personnalisé de votre projet web."
+        },
+        {
+          "icon": "🎯",
+          "title": "Expertise SEO local {{DEPARTEMENT}}",
+          "description": "Maîtrise du référencement local pour positionner votre entreprise sur Google à {{VILLE}}, {{VOISIN_1}}, {{VOISIN_2}} et toute la {{DEPARTEMENT}}."
+        },
+        {
+          "icon": "🚀",
+          "title": "Solutions sur-mesure adaptées",
+          "description": "Sites vitrines, e-commerce, applications web... Nous créons des solutions digitales parfaitement adaptées aux besoins des entreprises {{DEPARTEMENT_ADJECTIVE}}."
+        },
+        {
+          "icon": "💼",
+          "title": "Accompagnement complet",
+          "description": "De la conception à la maintenance, en passant par l'hébergement et la formation. Un interlocuteur unique pour tous vos besoins digitaux."
+        }
+      ],
+      "features_title": "Nos <span class=\"{{CSS_PREFIX}}-highlight\">services web</span> pour entreprises {{DEPARTEMENT_ADJECTIVE}}",
+      "features_subtitle": "Une gamme complète de solutions digitales pour développer votre visibilité et votre activité en {{DEPARTEMENT}} et au-delà.",
+      "features": [
+        {
+          "icon": "🌐",
+          "title": "Création de sites vitrines",
+          "description": "Sites professionnels responsive pour artisans, PME, professions libérales. Design moderne et optimisation SEO pour capter vos clients locaux."
+        },
+        {
+          "icon": "🛍️",
+          "title": "E-commerce et boutiques en ligne",
+          "description": "Solutions WooCommerce, Shopify ou PrestaShop pour vendre vos produits 24h/24. Paiement sécurisé, gestion des stocks et livraison intégrée."
+        },
+        {
+          "icon": "📱",
+          "title": "Applications web sur-mesure",
+          "description": "Développement d'outils métier personnalisés : CRM, gestion interne, plateformes de réservation adaptées à vos processus spécifiques."
+        },
+        {
+          "icon": "🔧",
+          "title": "Maintenance et support continu",
+          "description": "Mises à jour, sauvegardes, sécurité, corrections de bugs. Votre site reste performant et sécurisé avec notre contrat de maintenance."
+        }
+      ],
+      "mockup_title": "Entreprise {{DEPARTEMENT_ADJECTIVE_CAPITALIZE}}",
+      "mockup_text": "Site professionnel • SEO local<br />{{VILLE}} • {{DEPARTEMENT}}",
+      "mockup_button": "Découvrir nos réalisations",
+      "testimonials_title": "Ils nous ont fait <span class=\"{{CSS_PREFIX}}-highlight\">confiance</span> en {{DEPARTEMENT}}",
+      "testimonials_subtitle": "Découvrez les témoignages d'entrepreneurs et d'entreprises {{DEPARTEMENT_ADJECTIVE}} satisfaits de nos services web.",
+      "testimonials": [
+        {
+          "quote": "Une agence réactive et professionnelle. Mon site vitrine est exactement ce que je voulais. Mes clients me trouvent maintenant facilement sur Google à {{VILLE}} !",
+          "author_initials": "JD",
+          "author_name": "Jean Dupont",
+          "author_title": "Artisan plombier, {{VILLE}}"
+        },
+        {
+          "quote": "L'accompagnement local fait toute la différence. Des rendez-vous en face-à-face, une vraie écoute et un site e-commerce qui cartonne depuis son lancement.",
+          "author_initials": "SM",
+          "author_name": "Sophie Martin",
+          "author_title": "Commerçante, {{VOISIN_1}}"
+        },
+        {
+          "quote": "Excellente prestation ! Notre site web reflète parfaitement notre activité. Le référencement local nous apporte de nouveaux clients chaque semaine.",
+          "author_initials": "PL",
+          "author_name": "Pierre Leblanc",
+          "author_title": "Gérant PME, {{VOISIN_2}}"
+        }
+      ],
+      "final_cta_title": "Prêt à lancer votre projet web en {{DEPARTEMENT}} ?",
+      "final_cta_text": "Discutons ensemble de vos objectifs digitaux autour d'un café à {{VILLE}}. Devis personnalisé et conseils gratuits pour votre projet web.",
+      "final_cta_button": "Contactez votre agence locale",
+      "email_subject": "Nouvelle demande - Agence Web {{VILLE}} - web-starting.fr",
+      "email_message_template": "Nouvelle demande agence web depuis {{VILLE}} via web-starting.fr\\n\\nNom: ${name}\\nEmail: ${email}\\nProjet: ${project}\\n\\nSource: Page Agence {{VILLE}} - web-starting.fr\\nDate: ${new Date().toLocaleString('fr-FR')}\\n\\nCordialement,\\nSystème automatique web-starting.fr"
+    }
+  },
+  "departement_adjectives": {
+    "Vendée": "vendéennes",
+    "Loire-Atlantique": "nantaises",
+    "Maine-et-Loire": "angevines",
+    "Paris": "parisiennes",
+    "Rhône": "lyonnaises",
+    "Bouches-du-Rhône": "marseillaises",
+    "Haute-Garonne": "toulousaines",
+    "Gironde": "bordelaises",
+    "Nord": "lilloises",
+    "Ille-et-Vilaine": "rennaises"
+  }
+}
